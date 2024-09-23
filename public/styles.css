@@ -1,0 +1,264 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Eliminar scroll horizontal */
+}
+
+/* Contenedor principal */
+.main-container {
+    width: 80%;
+    margin: 2px auto 10px auto;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 80px; /* Ajustar margen superior */
+}
+
+/* Título */
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+/* Formulario de cliente */
+.client-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.client-form input {
+    flex: 1 1 200px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.client-form .form-buttons {
+    flex: 1 1 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.client-form .btn {
+    flex: 1;
+    padding: 10px;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.client-form .btn-create {
+    background-color: #007bff;
+}
+
+.client-form .btn-create:hover {
+    background-color: #0056b3;
+}
+
+.client-form .btn-edit {
+    background-color: #28a745;
+}
+
+.client-form .btn-edit:hover {
+    background-color: #218838;
+}
+
+.client-form .btn-delete {
+    background-color: #dc3545;
+}
+
+.client-form .btn-delete:hover {
+    background-color: #c82333;
+}
+
+.client-form .btn-clear {
+    background-color: #6c757d;
+}
+
+.client-form .btn-clear:hover {
+    background-color: #5a6268;
+}
+
+/* Tabla */
+.table-container {
+    width: 100%;
+    margin: 20px 0;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background-color: #6c7ae0;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Botones de acción */
+.btn {
+    padding: 8px 12px;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    margin-right: 5px;
+}
+
+.btn-create {
+    background-color: #007bff;
+}
+
+.btn-create:hover {
+    background-color: #0056b3;
+}
+
+.btn-edit {
+    background-color: #28a745;
+}
+
+.btn-edit:hover {
+    background-color: #218838;
+}
+
+.btn-delete {
+    background-color: #dc3545;
+}
+
+.btn-delete:hover {
+    background-color: #c82333;
+}
+
+/* Menú de navegación horizontal */
+.nav-menu {
+    list-style-type: none; /* Quitar las viñetas */
+    background: linear-gradient(to right, #0e0635, #800080);
+    color: white;
+    display: flex;
+    justify-content: flex-start; /* Alinear a la izquierda */
+    padding: 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.nav-menu li {
+    padding: 15px;
+    text-align: left; /* Alinear el texto a la izquierda */
+}
+
+.nav-menu li a {
+    color: white;
+    text-decoration: none;
+}
+
+.nav-menu li a:hover {
+    text-decoration: underline;
+}
+
+/* Ajustar el contenedor principal para que no quede debajo del menú */
+.main-container {
+    margin-top: 125px; /* Ajustar según la altura del menú */
+}
+/* Estilo para el mensaje de error */
+.error-message {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+    border: 1px solid #f5c6cb;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  /* Estilo para el mensaje de éxito */
+  .success-message {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 10px;
+    border: 1px solid #c3e6cb;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+/* Media Queries para diseño responsive */
+@media (max-width: 768px) {
+    .nav-menu {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-menu li {
+        width: 100%;
+        text-align: left;
+    }
+
+    .main-container {
+        width: 95%;
+        margin-top: 80px; /* Ajustar según la altura del menú */
+    }
+
+    th, td {
+        padding: 8px;
+    }
+
+    .btn {
+        padding: 6px 10px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-menu {
+        padding: 10px;
+    }
+
+    .nav-menu li {
+        padding: 10px;
+    }
+
+    .main-container {
+        width: 100%;
+        margin-top: 100px; /* Ajustar según la altura del menú */
+    }
+
+    th, td {
+        padding: 6px;
+        font-size: 12px;
+    }
+
+    .btn {
+        padding: 4px 8px;
+        font-size: 12px;
+    }
+
+    table {
+        width: 100%;
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}
