@@ -208,27 +208,34 @@ tr:nth-child(even) {
 @media (max-width: 768px) {
     .nav-menu {
         flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .nav-menu li {
-        width: 100%;
-        text-align: left;
     }
 
     .main-container {
-        width: 95%;
-        margin-top: 80px; /* Ajustar según la altura del menú */
+        margin-top: 60px; /* Ajustar según la altura del menú en dispositivos móviles */
     }
 
-    th, td {
-        padding: 8px;
+    .form {
+        margin-bottom: 20px;
     }
 
-    .btn {
-        padding: 6px 10px;
-        font-size: 14px;
+    .table-container {
+        overflow-x: auto;
     }
+}
+
+/* Ajustar el menú */
+.nav-menu {
+    display: flex;
+    flex-direction: row;
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    z-index: 1000;
 }
 
 @media (max-width: 480px) {
