@@ -34,5 +34,5 @@ Sigue estos pasos para configurar el proyecto en tu máquina local.
 ### Clonar el Repositorio
 
 ```bash
-git clone https://github.com/tu-usuario/tu-repositorio.git
+git clone https://github.com/Leobor91/store-app-react.git
 cd tu-repositorio
