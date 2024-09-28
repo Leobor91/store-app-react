@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ClientDetails from './ClientDetails';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const API_URL = process.env.REACT_APP_API_URL;
 const CLIENTS_LIST_ENDPOINT = process.env.REACT_APP_CLIENTS_LIST_ENDPOINT;
@@ -39,6 +41,7 @@ const Client = () => {
       } catch (error) {
         console.error('Error fetching clients:', error);
         setLoading(false);
+        toast.error('Error al obtener la lista de clientes');
       }
     };
 
@@ -64,7 +67,7 @@ const Client = () => {
       !newClient.email ||
       !newClient.phone
     ) {
-      alert('Por favor, complete todos los campos.');
+      toast.error('Por favor, complete todos los campos.');
       return;
     }
 
@@ -81,18 +84,19 @@ const Client = () => {
       const data = await response.json();
       if (response.ok) {
         if (data.object === null) {
-          setErrorMessage('Cliente ya existe. Por favor, verifique los datos.');
+          toast.error('Cliente ya existe. Por favor, verifique los datos.');
         } else {
           setSuccessMessage(data.message);
           setClients(prevClients => [...prevClients, data.object]);
           handleClear();
+          toast.success('Cliente guardado con éxito');
         }
       } else {
-        alert('Error al guardar el cliente: ' + data.message);
+        toast.error('Error al guardar el cliente: ' + data.message);
       }
     } catch (error) {
       console.error('Error al guardar el cliente:', error);
-      alert('Error al guardar el cliente');
+      toast.error('Error al guardar el cliente');
     }
   };
 
@@ -106,7 +110,7 @@ const Client = () => {
       !newClient.email ||
       !newClient.phone
     ) {
-      alert('Por favor, complete todos los campos.');
+      toast.error('Por favor, complete todos los campos.');
       return;
     }
 
@@ -123,26 +127,27 @@ const Client = () => {
       const data = await response.json();
       if (response.ok) {
         if (data.object === null) {
-          setErrorMessage('Cliente no encontrado. Por favor, verifique los datos.');
+          toast.error('Cliente no encontrado. Por favor, verifique los datos.');
         } else {
           setSuccessMessage(data.message);
           setClients(prevClients => prevClients.map(client => 
             client.id === data.object.id ? data.object : client
           ));
           handleClear();
+          toast.success('Cliente actualizado con éxito');
         }
       } else {
-        alert('Error al actualizar el cliente: ' + data.message);
+        toast.error('Error al actualizar el cliente: ' + data.message);
       }
     } catch (error) {
       console.error('Error al actualizar el cliente:', error);
-      alert('Error al actualizar el cliente');
+      toast.error('Error al actualizar el cliente');
     }
   };
 
   const handleDelete = async () => {
     if (!newClient.documentType || !newClient.documentNumber) {
-      alert('Por favor, seleccione un cliente para eliminar.');
+      toast.error('Por favor, seleccione un cliente para eliminar.');
       return;
     }
 
@@ -157,19 +162,20 @@ const Client = () => {
 
       const data = await response.json();
       if (response.ok) {
-        if (data.object === null) {
-          setErrorMessage('Cliente no encontrado. Por favor, verifique los datos.');
+        if (data.object === null) {          
+          toast.error('Cliente no encontrado. Por favor, verifique los datos.');
         } else {
           setSuccessMessage(data.message);
           setClients(prevClients => prevClients.filter(client => client.id !== data.object.id));
           handleClear();
+          toast.success('Cliente eliminado con éxito');
         }
       } else {
-        alert('Error al eliminar el cliente: ' + data.message);
+        toast.error('Error al eliminar el cliente: ' + data.message);
       }
     } catch (error) {
       console.error('Error al eliminar el cliente:', error);
-      alert('Error al eliminar el cliente');
+      toast.error('Error al eliminar el cliente');
     }
   };
 
@@ -263,6 +269,17 @@ const Client = () => {
       ) : (
         <ClientDetails clients={clients} onRowClick={handleRowClick} />
       )}
+      <ToastContainer 
+        position="bottom-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </div>
   );
 };
