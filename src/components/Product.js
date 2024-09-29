@@ -124,7 +124,8 @@ const Product = () => {
     }
   };
 
-  const handleEdit = async () => {
+  const handleEdit = async (e) => {
+    e.preventDefault();
     // Verificar que todos los campos estén completos
     if (
       !newProduct.name ||
@@ -164,7 +165,6 @@ const Product = () => {
         toast.error('Error al actualizar el producto: ' + data.message);
       }
     } catch (error) {
-      console.error('Error al actualizar el producto:', error);
       toast.error('Error al actualizar el producto');
     }
   };
@@ -205,7 +205,7 @@ const Product = () => {
       {successMessage && <p className="success-message">{successMessage}</p>}
       <button onClick={handleCreateNewProduct} className="btn btn-create">Crear Producto Nuevo</button>
       {showForm && (
-        <form onSubmit={handleSubmit} className="product-form">
+        <form onSubmit={isEditing ? handleEdit : handleSubmit} className="product-form">
           <input
             type="text"
             name="name"
@@ -261,6 +261,15 @@ const Product = () => {
               </option>
             ))}
           </select>
+          <select
+            name="status"
+            value={newProduct.status}
+            onChange={handleChange}
+            required
+          >
+            <option value={1}>Activo</option>
+            <option value={2}>Inactivo</option>
+          </select>
           <input
             type="file"
             accept="image/*"
@@ -268,7 +277,7 @@ const Product = () => {
           />
           <div className="form-buttons">
             <button type="submit" className="btn btn-create" disabled={isEditing}>Crear</button>
-            <button type="button" className="btn btn-edit" onClick={handleEdit}>Editar</button>
+            <button type="button" className="btn btn-edit" onClick={handleEdit} disabled={!isEditing}>Editar</button>
             <button type="button" className="btn btn-clear" onClick={handleClear}>Limpiar</button>
           </div>
         </form>
