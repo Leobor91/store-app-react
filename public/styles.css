@@ -23,7 +23,133 @@ h2 {
     color: #333;
 }
 
-/* Formulario de cliente */
+/* Formulario de vendore */
+.vendor-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.vendor-form input {
+    flex: 1 1 200px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.vendor-form .form-buttons {
+    flex: 1 1 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.vendor-form .btn {
+    flex: 1;
+    padding: 10px;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.vendor-form .btn-create {
+    background-color: #007bff;
+}
+
+.vendor-form .btn-create:hover {
+    background-color: #0056b3;
+}
+
+.vendor-form .btn-edit {
+    background-color: #28a745;
+}
+
+.vendor-form .btn-edit:hover {
+    background-color: #218838;
+}
+
+.vendor-form .btn-delete {
+    background-color: #dc3545;
+}
+
+.vendor-form .btn-delete:hover {
+    background-color: #c82333;
+}
+
+.vendor-form .btn-clear {
+    background-color: #6c757d;
+}
+
+.vendor-form .btn-clear:hover {
+    background-color: #5a6268;
+}
+
+.product-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.product-form input {
+    flex: 1 1 220px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.product-form .form-buttons {
+    flex: 1 1 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.product-form .btn {
+    flex: 1;
+    padding: 10px;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.product-form .btn-create {
+    background-color: #007bff;
+}
+
+.product-form .btn-create:hover {
+    background-color: #0056b3;
+}
+
+.product-form .btn-edit {
+    background-color: #28a745;
+}
+
+.product-form .btn-edit:hover {
+    background-color: #218838;
+}
+
+.product-form .btn-delete {
+    background-color: #dc3545;
+}
+
+.product-form .btn-delete:hover {
+    background-color: #c82333;
+}
+
+.product-form .btn-clear {
+    background-color: #6c757d;
+}
+
+.product-form .btn-clear:hover {
+    background-color: #5a6268;
+}
+
 .client-form {
     display: flex;
     flex-wrap: wrap;
