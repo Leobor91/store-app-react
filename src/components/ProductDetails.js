@@ -10,6 +10,13 @@ const ProductDetails = ({ products, vendors, onRowClick }) => {
     return vendor ? vendor.name : 'Desconocido';
   };
 
+  const getStatusStyle = (status) => {
+    return {
+      color: status === 1 ? 'green' : 'gray',
+      fontWeight: 'bold'
+    };
+  };
+
   return (
     <div className="grid-container">
       {products.map(product => (
@@ -17,7 +24,7 @@ const ProductDetails = ({ products, vendors, onRowClick }) => {
           {product.image && <img src={product.image} alt={product.name} className="product-image" />}
           <h3>{product.name}</h3>
           <p><strong>Descripción:</strong> {product.description}</p>
-          <p><strong>Estado:</strong> {product.status ? 'Activo' : 'Inactivo'}</p>
+          <p><strong>Estado:</strong> <span style={getStatusStyle(product.status)}>{product.status === 1 ? 'Activo' : 'Inactivo'}</span></p>
           <p><strong>Stock:</strong> {product.stock}</p>
           <p><strong>Precio Costo:</strong> {product.precioCosto ? parseFloat(product.precioCosto).toFixed(2) : 'N/A'}</p>
           <p><strong>Precio Venta:</strong> {product.precioVenta ? parseFloat(product.precioVenta).toFixed(2) : 'N/A'}</p>
