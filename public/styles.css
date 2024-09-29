@@ -23,6 +23,38 @@ h2 {
     color: #333;
 }
 
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+    padding: 16px;
+  }
+  
+  .grid-item {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    text-align: left;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+
+  .product-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 16px;
+  }
+  
+  .grid-item:hover {
+    transform: scale(1.05);
+  }
+  
+  .grid-item h3 {
+    margin-top: 0;
+  }
+
 /* Formulario de vendore */
 .vendor-form {
     display: flex;
@@ -274,6 +306,7 @@ tr:nth-child(even) {
 .btn-delete:hover {
     background-color: #c82333;
 }
+
 
 /* Menú de navegación horizontal */
 .nav-menu {
